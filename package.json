@@ -1,18 +1,18 @@
 {
-    "name": "chatgptunity",
-    "displayName": "ChatGPT Unity",
-    "version": "0.1.0",
-    "unity": "2019.3",
-    "description": "Adds openAI APi call to Unity",
-    "keywords": [ "unity", "package", "chatgpt", "openai" ],
-    "author": {
-        "name": "Fosa Kettunen"
-    },
-    "samples": [
-        {
-            "displayName": "Sampless",
-            "path": "ChatGPT-Unity",
-            "description": "A sample scene."
-        }
-    ]
+  "name": "chatgptunity",
+  "displayName": "ChatGPT Unity",
+  "version": "0.1.0",
+  "unity": "2021.1",
+  "description": "Adds openAI APi call to Unity",
+  "keywords": [ "unity", "package","chatgpt","openai" ],
+  "author": {
+    "name": "Fosa Kettunen"
+  },
+  "samples": [
+    {
+      "displayName": "Sample Scene",
+      "path": "Samples",
+      "description": "A sample scene."
+    }
+  ]
 }
