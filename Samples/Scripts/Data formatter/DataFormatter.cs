@@ -17,8 +17,8 @@ namespace ChatGPTRequest.DataFormatter
 
         const string _pattern = "\"total_tokens\":(\\d+)}.+\"content\":\"(.+?)\"}";
 
-        static Regex _contentRegex = new Regex("{\"content\":\"(.+?)\"}", RegexOptions.Singleline);
-        static Regex _finnisreasonRegex = new Regex("\"finish_reason\":(.+?)}", RegexOptions.Singleline);
+        static readonly Regex _contentRegex = new("{\"content\":\"(.+?)\"}", RegexOptions.Singleline);
+        static readonly Regex _finnisreasonRegex = new("\"finish_reason\":(.+?)}", RegexOptions.Singleline);
         public static ApiDataPackage CompileJsonString(string json, Prompt Prompt)
         {
             if (Prompt.arguments.stream)
@@ -78,7 +78,7 @@ namespace ChatGPTRequest.DataFormatter
             {
                 FieldInfo field = fields[i];
                 object value = field.GetValue(settings);
-
+               
                 strings[i] = JsonPair(field.Name, value);
 
             }

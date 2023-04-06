@@ -29,7 +29,7 @@ namespace ChatGPTRequest
 
         [Tooltip("The maximum number of tokens to generate in the chat completion." +
             "The total length of input tokens and generated tokens is limited by the model's context length.")]
-        public int max_tokens = int.MaxValue;
+        public int max_tokens = 4000;
 
         [Tooltip("Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics." +
             "<a href=\"https://platform.openai.com/docs/api-reference/parameter-details>See more information about frequency and presence penalties.</a>")]
@@ -47,7 +47,7 @@ namespace ChatGPTRequest
             return new ModelSettings {
                 temperature = temperature,
                 top_p = top_p,
-                max_tokens = max_tokens,
+                max_tokens = Mathf.Clamp(max_tokens,5,4000),
                 presence_penalty = presences_penalty,
                 frequency_penalty = frequency_penalty,
                 stream = false, 

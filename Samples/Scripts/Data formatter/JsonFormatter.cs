@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using UnityEngine;
 namespace ChatGPTRequest.DataFormatter
@@ -28,6 +29,10 @@ namespace ChatGPTRequest.DataFormatter
             else if (b is bool boolable)
             {
                 return $"\"{a}\":{(boolable ? "true" : "false")}";
+            }
+            else if (b is float floatable)
+            {
+                return $"\"{a}\":{floatable:F1} {CultureInfo.InvariantCulture}";
             }
             else
             {
