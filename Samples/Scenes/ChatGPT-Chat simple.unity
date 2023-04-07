@@ -759,11 +759,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager Instance
       objectReference: {fileID: 0}
-    - target: {fileID: 5150554474041554416, guid: 72d3eadf109fe5140a698bbb5ac173ed,
-        type: 3}
-      propertyPath: key
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5150554474041554417, guid: 72d3eadf109fe5140a698bbb5ac173ed,
         type: 3}
       propertyPath: m_RootOrder

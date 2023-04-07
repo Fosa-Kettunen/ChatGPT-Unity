@@ -23,6 +23,11 @@ public class SinglePromptChat : MonoBehaviour
 
     //https://platform.openai.com/docs/guides/chat
 
+    private void Start()
+    {
+        gpt.onSuccess += DistributeData;
+        gpt.onFailure += onFail;
+    }
 
     // A helper method for creating a list of chat messages based on a user message input.
     List<Message> ChatMessage(string message)
@@ -43,10 +48,7 @@ public class SinglePromptChat : MonoBehaviour
     {
         _runOnce = true;
 
-        gpt.DoApiCompletation(ChatMessage(input.text),
-            (i) => DistributeData(i),//success
-            (a) => Debug.Log(a),
-            Stream);
+        gpt.DoApiCompletation(ChatMessage(input.text),Stream);
     }
 
     // method for processing the results of a chat request.
@@ -79,6 +81,11 @@ public class SinglePromptChat : MonoBehaviour
 
             print($"Executed ChatGPT call in: {data.ExecutionTime:F3} seconds");
         }
+    }
+
+    void onFail(string errMsg)
+    {
+        Debug.LogWarning(errMsg);
     }
 
 }

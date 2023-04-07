@@ -11,15 +11,15 @@ public class ChatGPTmanager : MonoBehaviour
 {
     public ChatGPTKey key;
     public CompletionArguments completionArguments;
-    [Space(10)]
 
-
+    public event Action<ApiDataPackage> onSuccess;
+    public event Action<string> onFailure = null;
     //private MsgLogHandler msgLog = new();
     private OpenAIRequest request = new();
     private OpenAIRequestSteam OpenAIRequestSteam = new();
     private Prompt prompt = new();
 
-    // "{ \"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}] }";
+
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class ChatGPTmanager : MonoBehaviour
     /// <param name="input">Text input</param>
     /// <param name="onSuccess">Action that outputs data class</param>
     /// <param name="onFailure">Sends error message if request fails</param>
-    public void DoApiCompletation(List<Message> message, Action<ApiDataPackage> onSuccess, Action<string> onFailure = null,bool stream = false)
+    public void DoApiCompletation(List<Message> message,bool stream = false)
     {
           
         if (message == null)
@@ -58,7 +58,6 @@ public class ChatGPTmanager : MonoBehaviour
         prompt.Keys = key;
         prompt.Messages = message;
 
-        //StartCoroutine(request.RUnAPI(prompt, onSuccess, onFailure));
         //start task
         if (stream)
         {
