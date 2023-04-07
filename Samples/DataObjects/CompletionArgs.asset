@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cd6657f6fe22c40b66b77651df7dfa, type: 3}
   m_Name: CompletionArgs
   m_EditorClassIdentifier: 
-  temperature: 0.2
+  temperature: 1
   top_p: 1
   max_tokens: 4000
   presences_penalty: 0

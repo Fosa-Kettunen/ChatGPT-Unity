@@ -31,12 +31,12 @@ namespace ChatGPTRequest
             "The total length of input tokens and generated tokens is limited by the model's context length.")]
         public int max_tokens = 4000;
 
-        [Tooltip("Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics." +
-            "<a href=\"https://platform.openai.com/docs/api-reference/parameter-details>See more information about frequency and presence penalties.</a>")]
+        [Tooltip("Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.")]
+        //https://platform.openai.com/docs/api-reference/parameter-details
         public float presences_penalty = 0;
 
-        [Tooltip("Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim." +
-            "<a href=\"https://platform.openai.com/docs/api-reference/parameter-details>See more information about frequency and presence penalties.</a>")]
+        [Tooltip("Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.")]
+        //"https://platform.openai.com/docs/api-reference/parameter-details
         public float frequency_penalty = 0;
 
 

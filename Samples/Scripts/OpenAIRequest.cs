@@ -24,7 +24,7 @@ namespace ChatGPTRequest
 
             UnityWebRequest client = UnityWebRequest.Post(endpoint, string.Empty);
             PopulateAuthHeaders(client, apiKey, orgKey);
-           // Debug.Log(msg);
+            //Debug.Log(msg);
             AddJsonToUnityWebRequest(client, msg);
             Debug.Log("retriving data...");
             yield return client.SendWebRequest();
@@ -56,7 +56,7 @@ namespace ChatGPTRequest
         private void PopulateAuthHeaders(UnityWebRequest client,string apikey, string orgKey)
         {
             client.SetRequestHeader("Authorization", $"Bearer {apikey}");
-            client.SetRequestHeader("User-Agent", $"hexthedev/openai_api_unity");
+            //client.SetRequestHeader("User-Agent", $"");
             if (!string.IsNullOrEmpty(orgKey)) client.SetRequestHeader("OpenAI-Organization", orgKey);
         }
 

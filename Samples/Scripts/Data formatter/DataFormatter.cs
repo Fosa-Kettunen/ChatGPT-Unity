@@ -99,33 +99,11 @@ namespace ChatGPTRequest.DataFormatter
         }
     }
 }
-/*
-{
-"id":"chatcmpl-6w9NqakBP62s6M2HNuezE8jzjgPVo",
-"object":"chat.completion",
-"created":1679317114,
-"model":"gpt-3.5-turbo-0301",
-    "usage":{
-    "prompt_tokens":9,
-    "completion_tokens":11,
-    "total_tokens":20},
-    "choices":[{
-        "message":{
-            "role":"assistant",
-            "content":"\n\nHi there! How can I assist you today?"
-            },
-        "finish_reason":"stop",
-        "index":0}
-        ]
-}
 
-
-
-*/
 
 /*
  {"content":"(.+?)"}.+"finish_reason":(.+?)}
 
-data: {"id":"chatcmpl-70rLBzJDrz54rp4MyE55EEaJxXXAu","object":"chat.completion.chunk","created":1680439397,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":"?"},"index":0,"finish_reason":null}]}
+data: {"id":"chatcmpl-12rLBzJDoc11lk2KlE55EEaDxFFAu","object":"chat.completion.chunk","created":1680439397,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":"?"},"index":0,"finish_reason":null}]}
     */
 
