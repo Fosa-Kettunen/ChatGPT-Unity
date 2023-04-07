@@ -14,6 +14,7 @@ public class ChatGPTmanager : MonoBehaviour
 
     public event Action<ApiDataPackage> onSuccess;
     public event Action<string> onFailure = null;
+    public event Action<ApiDataPackage> streamData = null;
     //private MsgLogHandler msgLog = new();
     private OpenAIRequest request = new();
     private OpenAIRequestSteam OpenAIRequestSteam = new();
@@ -61,7 +62,7 @@ public class ChatGPTmanager : MonoBehaviour
         //start task
         if (stream)
         {
-            StartCoroutine(OpenAIRequestSteam.RunAPI(prompt, onSuccess, onFailure));
+            StartCoroutine(OpenAIRequestSteam.RunAPI(prompt, streamData, onFailure));
         }
         else
         {
