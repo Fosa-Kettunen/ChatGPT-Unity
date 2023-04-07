@@ -11,19 +11,30 @@ public class ChatGPTmanager : MonoBehaviour
 {
     public ChatGPTKey key;
     public CompletionArguments completionArguments;
-
-    public event Action<ApiDataPackage> onSuccess;
-    public event Action<string> onFailure = null;
-    public event Action<ApiDataPackage> streamData = null;
+    /// <summary>
+    /// Returns one package with whole message inside it 
+    /// <br/> This May take several seconds depending on the length of the response
+    /// </summary>
+    public event Action<ApiDataPackage> OnSuccess;
+    /// <summary>
+    /// returns error message
+    /// </summary>
+    public event Action<string> OnFailure = null;
+    /// <summary>
+    /// Returns multiple packages.<br/>
+    /// NOTE: last package will be empty and has its value "finnish_reason" as string "\"stop\"".
+    /// </summary>
+    public event Action<ApiDataPackage> StreamData = null;
     //private MsgLogHandler msgLog = new();
-    private OpenAIRequest request = new();
-    private OpenAIRequestSteam OpenAIRequestSteam = new();
-    private Prompt prompt = new();
+    private readonly OpenAIRequest request = new();
+    private readonly OpenAIRequestSteam OpenAIRequestSteam = new();
+    private readonly Prompt prompt = new();
 
 
 
     private void Start()
     {
+        
         if (key == null || string.IsNullOrEmpty(key.apiKey))
         {
             Debug.LogError("No valid key set in:" + key.name);
@@ -62,11 +73,11 @@ public class ChatGPTmanager : MonoBehaviour
         //start task
         if (stream)
         {
-            StartCoroutine(OpenAIRequestSteam.RunAPI(prompt, streamData, onFailure));
+            StartCoroutine(OpenAIRequestSteam.RunAPI(prompt, StreamData, OnFailure));
         }
         else
         {
-            StartCoroutine(request.RUnAPI(prompt, onSuccess, onFailure));
+            StartCoroutine(request.RUnAPI(prompt, OnSuccess, OnFailure));
         }
 
     }

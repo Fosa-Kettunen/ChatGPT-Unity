@@ -25,8 +25,8 @@ public class SinglePromptChat : MonoBehaviour
 
     private void Start()
     {
-        gpt.onSuccess += DistributeData;
-        gpt.onFailure += onFail;
+        gpt.OnSuccess += DistributeData;
+        gpt.OnFailure += onFail;
     }
 
     // A helper method for creating a list of chat messages based on a user message input.
