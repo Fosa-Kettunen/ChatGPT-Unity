@@ -32,13 +32,14 @@ namespace ChatGPTRequest.DataFormatter
             }
             else if (b is float floatable)
             {
-                return $"\"{a}\":{floatable:F1} {CultureInfo.InvariantCulture}";
+                return $"\"{a}\":{floatable.ToString("F1",CultureInfo.InvariantCulture)}";
             }
             else
             {
                 return $"\"{a}\":{b}";
             }
         }
+       
         public static string ReScapeJson(string inputString)
         {
             Dictionary<string, string> escapeChars = new Dictionary<string, string>
