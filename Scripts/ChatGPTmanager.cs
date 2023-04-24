@@ -15,7 +15,7 @@ public class ChatGPTmanager : MonoBehaviour
     /// Returns one package with whole message inside it 
     /// <br/> This May take several seconds depending on the length of the response
     /// </summary>
-    public event Action<ApiDataPackage> OnSuccess;
+    public event Action<ApiDataPackage> PackagedData;
     /// <summary>
     /// returns error message
     /// </summary>
@@ -77,7 +77,7 @@ public class ChatGPTmanager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(request.RUnAPI(prompt, OnSuccess, OnFailure));
+            StartCoroutine(request.RUnAPI(prompt, PackagedData, OnFailure));
         }
 
     }

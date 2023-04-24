@@ -25,7 +25,7 @@ public class SinglePromptChat : MonoBehaviour
 
     private void Start()
     {
-        gpt.OnSuccess += DistributeData;
+        gpt.PackagedData += DistributeData;
         gpt.OnFailure += onFail;
     }
 
