@@ -10,7 +10,7 @@ using UnityEngine.Networking;
 
 namespace ChatGPTRequest
 {
-    public class OpenAIRequestSteam
+    public class OpenAIRequestStream
     {
         private class StreamDownloadHandler : DownloadHandlerScript
         {
@@ -43,7 +43,7 @@ namespace ChatGPTRequest
             string orgKey = prompt.Keys.organization;
             string apiKey = prompt.Keys.apiKey;
             string msg = prompt.FullMsg;
-            //Debug.Log(msg);
+            Debug.Log(msg);
             UnityWebRequest client = new(endpoint, "POST");
             StreamDownloadHandler streamDownloadHandler = new(data =>
             {

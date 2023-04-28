@@ -27,7 +27,7 @@ public class ChatGPTmanager : MonoBehaviour
     public event Action<ApiDataPackage> StreamData = null;
     //private MsgLogHandler msgLog = new();
     private readonly OpenAIRequest request = new();
-    private readonly OpenAIRequestSteam OpenAIRequestSteam = new();
+    private readonly OpenAIRequestStream OpenAIRequestSteam = new();
     private readonly Prompt prompt = new();
 
 

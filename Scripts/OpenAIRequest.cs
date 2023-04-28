@@ -24,7 +24,7 @@ namespace ChatGPTRequest
 
             UnityWebRequest client = UnityWebRequest.Post(endpoint, string.Empty);
             PopulateAuthHeaders(client, apiKey, orgKey);
-            //Debug.Log(msg);
+            Debug.Log(msg + ";single");
             AddJsonToUnityWebRequest(client, msg);
             Debug.Log("retriving data...");
             yield return client.SendWebRequest();
